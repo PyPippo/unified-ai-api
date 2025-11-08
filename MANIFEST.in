@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include src/api_ai/config *.json *.template
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+exclude tests/*
+exclude my_doc/*
+exclude .gitignore
+exclude update_requirements.*
+

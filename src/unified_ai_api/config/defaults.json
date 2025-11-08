@@ -1,0 +1,25 @@
+{
+	"_comment": "Default configuration values for the API AI package",
+	"_description": "This file contains default settings that can be overridden by environment-specific configurations",
+	"_version": "1.0.0",
+	"_last_updated": "2025-09-04",
+
+	"default_provider": "OPENROUTER",
+	"default_config_index": 0,
+	"default_api_type": "openai",
+
+	"timeouts": {
+		"connection_timeout": 30,
+		"read_timeout": 60
+	},
+
+	"retry_policy": {
+		"max_retries": 3,
+		"backoff_factor": 1.5
+	},
+
+	"logging": {
+		"level": "INFO",
+		"format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+	}
+}

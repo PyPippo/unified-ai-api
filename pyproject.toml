@@ -1,0 +1,148 @@
+# cSpell:disable
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unified-ai-api"
+version = "1.0.0"
+description = "Unified API Connection Manager for Multiple AI Providers"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Unified AI API Team", email = "unified-ai-api@example.com"}
+]
+keywords = ["ai", "api", "openai", "openrouter", "huggingface", "chat", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "openai>=1.0.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.24.0",
+    "typing-extensions>=4.0.0",
+    "colorama>=0.4.6",
+    "tqdm>=4.66.0",
+    "jiter>=0.5.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0",
+    "pyright>=1.1",
+    "build>=0.10.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/PyPippo/unified-ai-api"
+Repository = "https://github.com/PyPippo/unified-ai-api.git"
+Issues = "https://github.com/PyPippo/unified-ai-api/issues"
+Documentation = "https://github.com/PyPippo/unified-ai-api#readme"
+
+[project.scripts]
+unified-ai-api = "unified_ai_api.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["unified_ai_api*"]
+
+[tool.setuptools.package-data]
+unified_ai_api = ["config/*.json", "config/*.template"]
+
+[tool.pytest.ini_options]
+# Pytest configuration
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+# Coverage settings
+addopts = [
+    "--verbose",
+    "--tb=short",
+    "--strict-markers",
+    "--cov=src/unified_ai_api",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+]
+
+# Test discovery
+minversion = "7.0"
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests", 
+    "slow: Slow running tests",
+]
+
+# Python path for imports
+pythonpath = ["src"]
+
+[tool.mypy]
+# MyPy configuration for type checking - Very lenient settings
+mypy_path = "src"
+packages = ["unified_ai_api"]
+strict = false
+warn_return_any = false
+warn_unused_configs = false
+disallow_untyped_defs = false
+ignore_missing_imports = true
+allow_untyped_calls = true
+allow_untyped_defs = true
+allow_incomplete_defs = true
+allow_untyped_globals = true
+allow_redefinition = true
+no_implicit_optional = false
+warn_no_return = false
+warn_unreachable = false
+
+[tool.pyright]
+# Pyright configuration for type checking - Very lenient settings
+include = ["src", "tests"]
+exclude = ["**/__pycache__"]
+# Remove venv configuration since no virtual environment is used
+# venvPath = "."
+# venv = ".venv"
+typeCheckingMode = "off"
+reportMissingImports = false
+reportMissingTypeStubs = false
+reportImportCycles = false
+reportUnusedImport = false
+reportUnusedClass = false
+reportUnusedFunction = false
+reportUnusedVariable = false
+reportDuplicateImport = false
+reportOptionalSubscript = false
+reportOptionalMemberAccess = false
+reportOptionalCall = false
+reportOptionalIterable = false
+reportOptionalContextManager = false
+reportOptionalOperand = false
+reportTypedDictNotRequiredAccess = false
+reportPrivateImportUsage = false
+reportConstantRedefinition = false
+reportIncompatibleMethodOverride = false
+reportIncompatibleVariableOverride = false
+reportOverlappingOverload = false
+
+[[tool.pyright.executionEnvironments]]
+root = "src"
+pythonPath = "src"
+
+[[tool.pyright.executionEnvironments]]
+root = "tests"
+pythonPath = "src"

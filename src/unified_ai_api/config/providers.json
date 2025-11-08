@@ -1,0 +1,40 @@
+{
+	"OPENROUTER": [
+		{
+			"config_name": "gemma-3-4b-it:free",
+			"model_url": "https://openrouter.ai/google/gemma-3-4b-it:free/api",
+			"model_name": "google/gemma-3-4b-it:free",
+			"init_config_msg": "Sei un assistente che si chiama Joi e parla italiano.",
+			"api_supported": ["openai", "requests"],
+			"api_endpoints": {
+				"openai": "https://openrouter.ai/api/v1",
+				"requests": "https://openrouter.ai/api/v1/chat/completions"
+			}
+		}
+	],
+
+	"HUGGINGFACE": [
+		{
+			"config_name": "llama-3-1-70b-instruct:fireworks-ai",
+			"model_url": "https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct",
+			"model_name": "meta-llama/Llama-3.1-70B-Instruct:fireworks-ai",
+			"init_config_msg": "Sei un assistente che si chiama Joi e parla italiano.",
+			"api_supported": ["huggingface_hub", "openai", "requests"],
+			"api_endpoints": {
+				"openai": "https://router.huggingface.co/v1",
+				"requests": "https://router.huggingface.co/v1/chat/completions"
+			}
+		},
+		{
+			"config_name": "Ling-1T:featherless-ai",
+			"model_url": "https://huggingface.co/inclusionAI/Ling-1T",
+			"model_name": "inclusionAI/Ling-1T:featherless-ai",
+			"init_config_msg": "Sei un assistente che si chiama Joi e parla italiano.",
+			"api_supported": ["huggingface_hub", "openai", "requests"],
+			"api_endpoints": {
+				"openai": "https://router.huggingface.co/v1",
+				"requests": "https://router.huggingface.co/v1/chat/completions"
+			}
+		}
+	]
+}
