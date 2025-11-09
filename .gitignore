@@ -99,6 +99,7 @@ my_doc/
 .env.local
 .env.*.local
 
+
 # Template files are safe to commit (contain no real secrets)
 # src/unified_ai_api/config/secret.json.template
 
@@ -138,6 +139,7 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .nox/
+
 .coverage
 .coverage.*
 .cache
@@ -312,3 +314,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Deprecated/Backup Files
+*.bat
+update_requirements.py
